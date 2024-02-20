@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora </title>
+  <title>Calculadora Simples</title>
   <style>
     body {
       display: flex;
@@ -67,12 +67,14 @@
   <button onclick="appendToDisplay('6')">6</button>
   <button onclick="appendToDisplay('7')">7</button>
   <button onclick="appendToDisplay('8')">8</button>
-  <button onclick="appendToDisplay('x')">*</button>
+  <button onclick="appendToDisplay('*')">*</button>
   <br>
   <button onclick="appendToDisplay('9')">9</button>
   <button onclick="appendToDisplay('0')">0</button>
   <button onclick="calculateResult()">=</button>
   <button onclick="appendToDisplay('/')">/</button>
+  <br>
+  <button onclick="power()">^</button>
 </div>
 
 <script>
@@ -87,6 +89,13 @@
   function calculateResult() {
     var displayValue = document.getElementById('display').value;
     var result = eval(displayValue); // Use eval with caution in real-world applications
+    document.getElementById('display').value = result;
+  }
+
+  function power() {
+    var displayValue = document.getElementById('display').value;
+    var exponent = prompt("Enter the exponent:");
+    var result = Math.pow(parseFloat(displayValue), parseFloat(exponent));
     document.getElementById('display').value = result;
   }
 </script>
